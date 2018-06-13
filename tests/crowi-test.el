@@ -101,7 +101,6 @@
 )
 
 (ert-deftest crowi-candeidate-test2 ()
-  (crowi-test-arrange)
   "Test of `crowi-candidate`."
   (should (member "/test/crowi-test" (crowi-candidate "page")))
   (should (member "/test/" (crowi-candidate "path")))
@@ -109,7 +108,6 @@
 
 (ert-deftest crowi-pages-update-test ()
   "Test of `crowi-pages-update-from-file`."
-  (crowi-test-arrange)
   (if (file-exists-p "./test.md")
 	  (delete-file "./test.md"))
   (with-temp-buffer
@@ -135,7 +133,6 @@
 
 (ert-deftest crowi-pages-get-save-test ()
   "Test of `crowi-pages-get` When save."
-  (crowi-test-arrange)
   (if (file-exists-p (concat crowi-markdown-save-path "/test/crowi-test.md"))
 	  (delete-file (concat crowi-markdown-save-path "/test/crowi-test.md")))
   (setq crowi-markdown-save t)
@@ -149,9 +146,8 @@
   (delete-file (concat crowi-markdown-save-path "/test/crowi-test.md"))
 	  )
 
-(ert-deftest crowi-comment-add-from-buffer-test ()
+(ert-deftest crowi-comment-test ()
   "Test of `crowi-comments-add-from-buffer`."
-  (crowi-test-arrange)
   (crowi-create-buffer)
   (switch-to-buffer "*Crowi*")
   (insert  "comments")
@@ -163,7 +159,6 @@
   (kill-buffer "*Crowi*")
 
   "Test of `crowi-comments-get`."
-  (crowi-test-arrange)
   (let ((unread-command-events
 		 (listify-key-sequence
 		  (kbd "/test/crowi-test RET"))))
@@ -186,46 +181,6 @@
 				  (point-min) (line-end-position))))
   (kill-buffer "*Crowi*"))
 
-(defun crowi-test-arrange ()
-  "Arrange of crowi test."
-  (if (file-exists-p "./test.md")
-	  (delete-file "./test.md"))
-  (with-temp-buffer
-	(insert  "create")
-	(write-file "./test.md"))
-  (let ((unread-command-events
-		 (listify-key-sequence
-		  (kbd "test.md RET /test/ RET crowi-test RET"))))
-	(ignore-errors (crowi-pages-create-from-file))
-	(delete-file "./test.md")))
-
-;;api
-
-;;api-attachments
-
-;; create from file
-
-;;candidate
-
-;; pages-list
-
-;; update from file
-
-;; get pages file
-
-;; check list
-
-;; create from buffer
-
-;;comments add
-
-;; comments get
-
-;; attachments add
-
-;;attachments download
-
-;; attachments remove
 
 
 (provide 'crowi-test)
