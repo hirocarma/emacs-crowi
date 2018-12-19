@@ -171,6 +171,14 @@
   (kill-buffer "*Crowi*")
   )
 
+
+(ert-deftest crowi-attachment-test ()
+  "Test of `crowi-attachments-add`."
+  (crowi-create-buffer)
+  (switch-to-buffer "*Crowi*")
+  (insert  "comments")
+  (write-file "./test.txt")
+)
 (ert-deftest crowi-pages-list-test()
   "Test of `crowi-pages-list`."
   (crowi-pages-list)
