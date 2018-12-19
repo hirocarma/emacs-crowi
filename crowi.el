@@ -115,7 +115,7 @@
 	  ret)))
 
 ;;; API access function
-(defun crowi-api (method api &optional parm &optional alist)
+(defun crowi-api (method api &optional parm alist)
   "Access Crowi api.  METHOD is GET or PUT.  Crowi api path as API.
 query strings as PARM.  alist for json as ALIST."
   (with-temp-buffer
