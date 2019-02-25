@@ -101,6 +101,14 @@
   (assoc-default
    'id (assoc 'page (crowi-api "GET" "/pages.get" (concat "&path=" path)))))
 
+(defun crowi-revisionid (path)
+  "Return Crowi revisionid.  PATH as Crowi path."
+  (assoc-default
+			 '_id (assoc 'revision
+						  (assoc 'page
+								 (crowi-api
+								  "GET" "/pages.get" (concat "&path=" path))))))
+
 (defun crowi-curl-download (uri filename)
   "Download by curl from URI.  Save as FILENAME."
   (with-temp-buffer
@@ -239,7 +247,7 @@ Attachment file path as FILE-PATH."
   "Update Crowi page.  BODY as Crowi page for update."
   (let* ((path (completing-read "Crowi update page ? "
 										(crowi-candidate "page")))
-		 (args `( ("page_id" . ,(crowi-pageid path))("body" . ,body))))
+		 (args `( ("page_id" . ,(crowi-pageid path))("revision_id" . ,(crowi-revisionid path))("body" . ,body))))
 	(assoc-default 'path
 				   (assoc 'page (crowi-api "POST" "/pages.update" nil args)))))
 ;;;###autoload
