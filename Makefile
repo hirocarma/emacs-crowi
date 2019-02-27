@@ -6,7 +6,7 @@ all:
 	${MAKE} test
 	${MAKE} clean
 compile:
-	${CASK} exec ${EMACS} -Q -batch -L . -eval "(batch-byte-compile)" crowi.el
+	${CASK} exec ${EMACS} -Q -batch -L .cask -eval "(batch-byte-compile)" crowi.el
 test:
 	${CASK} exec ${EMACS} -Q -l tests/run-test.el
 clean:
