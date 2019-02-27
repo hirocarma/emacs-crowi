@@ -1,5 +1,5 @@
 EMACS ?= emacs -nw
-CASK ?= cask
+CASK ?= ~/.cask/bin/cask
 all:
 	${MAKE} clean
 	${MAKE} compile
