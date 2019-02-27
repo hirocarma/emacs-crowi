@@ -10,7 +10,7 @@
 
 ;;; Commentary:
 
-;; This package assists the user in managing crowi markdown.
+;; This package assists the user in managing crowi/growi markdown.
 ;; Please see README.md for documentation.
 
 ;;; Code:
