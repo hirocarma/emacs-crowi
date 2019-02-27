@@ -190,7 +190,6 @@ Attachment file path as FILE-PATH."
 	  res))))
 
 ;;; interactive
-;; users
 ;;;###autoload
 (defun crowi-users-list ()
   "Output Crowi users list in buffer."
@@ -204,7 +203,6 @@ Attachment file path as FILE-PATH."
 					  (assoc-default 'users (crowi-api "GET" "/users.list")))
 			  "\n" )))
 
-;; pages
 ;;;###autoload
 (defun crowi-pages-list ()
   "Output Crowi pages list in buffer."
@@ -311,7 +309,6 @@ Attachment file path as FILE-PATH."
 					 (buffer-substring-no-properties
 					  (point-min) (point-max)))))))
 
-;; comments
 ;;;###autoload
 (defun crowi-comments-get ()
   "Get Crowi page comments in buffer."
@@ -346,7 +343,6 @@ Attachment file path as FILE-PATH."
 	(crowi-api "POST" "/comments.add" nil args)
 	(message "for %s comment is added" path)))
 
-;; attachments
 ;;;###autoload
 (defun crowi-attachments-download ()
   "Download Crowi attachments."
