@@ -247,7 +247,8 @@ Attachment file path as FILE-PATH."
   "Update Crowi page.  BODY as Crowi page for update."
   (let* ((path (completing-read "Crowi update page ? "
 										(crowi-candidate "page")))
-		 (args `( ("page_id" . ,(crowi-pageid path))("revision_id" . ,(crowi-revisionid path))("body" . ,body))))
+		 (args `( ("page_id" . ,(crowi-pageid path))
+				  ("revision_id" . ,(crowi-revisionid path))("body" . ,body))))
 	(assoc-default 'path
 				   (assoc 'page (crowi-api "POST" "/pages.update" nil args)))))
 ;;;###autoload
