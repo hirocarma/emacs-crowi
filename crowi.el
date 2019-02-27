@@ -238,9 +238,9 @@ Attachment file path as FILE-PATH."
 		(when (eq 0 (length save-path)
 				  (setq save-path crowi-markdown-save-path)))
 		(unless (file-directory-p
-				 (concat save-path (file-name-directory path))
+				 (concat save-path (file-name-directory path)))
 				 (crowi-mkdir-parent
-				  (concat save-path path))))
+				  (concat save-path path)))
 		(write-file (concat save-path path ".md"))))))
 
 (defun crowi-pages-update (body)
