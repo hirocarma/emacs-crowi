@@ -5,9 +5,13 @@ before_install:
   - sudo apt-get update -qq
   - sudo apt-get install -qq emacs
   # Install Cask
-  - curl -fsSkL --max-time 10 --retry 10 --retry-delay 10
-      https://raw.github.com/cask/cask/master/go | python
+  - git clone --depth=1 https://github.com/cask/cask.git "$(HOME)/.cask"
+  - mkdir -p "$(HOME)/bin"
+  - ln -s "$(HOME)/.cask/bin/cask" "$(HOME)/bin/cask"
   - export PATH="$HOME/.cask/bin:$PATH"
+  - cask
+install:
+  # Install your dependencies
   - cask install
 script:
   make
