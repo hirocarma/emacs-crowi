@@ -4,7 +4,7 @@
 
 ;; Author: Hiroshi Sudo <carma386@gmail.com>
 ;; Version: 0.1.0
-;; Package-Requires: ((emacs "24") (markdown-mode "2.4"))
+;; Package-Requires: ((emacs "24"))
 ;; Keywords: Markdown, crowi
 ;; URL: https://github.com/hirocarma/emacs-crowi
 
