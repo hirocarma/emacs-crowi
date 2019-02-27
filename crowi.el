@@ -15,7 +15,6 @@
 
 ;;; Code:
 (require 'json)
-(require 'markdown-mode)
 
 (defgroup crowi nil
   "Elisp client for Crowi."
@@ -228,7 +227,6 @@ Attachment file path as FILE-PATH."
 								 (crowi-api
 								  "GET" "/pages.get" (concat "&path=" path))))))
 	(goto-char (point-min))
-	(markdown-mode)
 	(when crowi-markdown-save
 	  (let ((save-path (completing-read "Download path ? "
 										(list crowi-markdown-save-path) nil
